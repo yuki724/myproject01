@@ -1,1 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
 
+<head>
+    <meta charset="UTF-8">
+    <title>Google Chart Toolsの練習</title>
+</head>
+
+<body>
+    <h1>IT転職ナビ 求人情報数 2015年7月31日版</h1>
+    <h2>Ruby求人情報数</h2>
+    <p>ここに解説を書く。データはe-statで検索→都道府県別のデータを入手→ここに書き込むだけ
+    完成品はkklab.mobiで検索してそこに投稿
+    自分のgithubサイト→yuki724.github.io
+    自分のレポジトリを追加してそこに完成品のリンクを貼るだけでＯＫ
+    河合さんのサイトを開けばサンプルがある→コピペＯＫ</p>
+    自分のサイト→myproject01→<div id="drawChartRuby" style="width: 1200px; padding: 0; margin: 0; border: 0;"></div>
+    <h2>寿司統計</h2>
+    <div id="drawChartPHP" style="width: 1200px; padding: 0; margin: 0; border: 0;"></div>
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+        // http://qiita.com/sadapon2008/items/deeb7cf017bcceecc9b5
+        // を引用し、修正を加えたもの
+        
+        // Load the Visualization API and the piechart package.
+        google.load('visualization', '1.0', {
+            'packages': ['geochart'],
+            'language': 'ja'
+        });
+
+        google.setOnLoadCallback(graphChart);
+
+        function graphChart() {
+            var data_ruby = google.visualization.arrayToDataTable(
+[
+['都道府県', '寿司統計'],
+['北海道', 3],
+['青森', 0],
+['岩手', 0],
+['宮城', 1],
+['秋田', 0],
+['山形', 0],
+['福島', 0],
+['茨城', 5],
+['栃木', 2],
+['群馬', 2],
+['埼玉', 29],
+['千葉', 33],
+['東京', 797],
+['神奈川', 50],
+['新潟', 1],
+['富山', 2],
+['石川', 1],
+['福井', 0],
+['山梨', 0],
+['長野', 1],
+['岐阜', 1],
+['静岡', 2],
+['愛知', 10],
+['三重', 1],
+['滋賀', 3],
+['京都', 18],
+['大阪', 49],
+['兵庫', 7],
+['奈良', 4],
+['和歌山', 2],
+['鳥取', 0],
+['島根', 5],
+['岡山', 0],
+['広島', 0],
+['山口', 1],
+['徳島', 0],
+['香川', 0],
+['愛媛', 0],
+['高知', 0],
+['福岡', 21],
+['佐賀', 0],
+['長崎', 0],
+['熊本', 0],
+['大分', 1],
+['宮崎', 1],
+['鹿児島', 0],
+['沖縄', 5]
+]
+            );
+
+            var data_php = google.visualization.arrayToDataTable(
+[
+['都道府県', 'PHP求人情報数'],
+['北海道', 23],
+['青森', 3],
+['岩手', 2],
+['宮城', 8],
+['秋田', 2],
+['山形', 1],
+['福島', 4],
+['茨城', 10],
+['栃木', 9],
+['群馬', 14],
+['埼玉', 92],
+['千葉', 103],
+['東京', 1832],
+['神奈川', 205],
+['新潟', 2],
+['富山', 2],
+['石川', 8],
+['福井', 3],
+['山梨', 2],
+['長野', 5],
+['岐阜', 6],
+['静岡', 7],
+['愛知', 31],
+['三重', 4],
+['滋賀', 6],
+['京都', 41],
+['大阪', 222],
+['兵庫', 39],
+['奈良', 7],
+['和歌山', 6],
+['鳥取', 2],
+['島根', 9],
+['岡山', 4],
+['広島', 7],
+['山口', 5],
+['徳島', 2],
+['香川', 3],
+['愛媛', 2],
+['高知', 2],
+['福岡', 79],
+['佐賀', 2],
+['長崎', 3],
+['熊本', 6],
+['大分', 3],
+['宮崎', 4],
+['鹿児島', 2],
+['沖縄', 15]
+]
+            );
+
+            var option = {
+                region: 'JP',
+                resolution: 'provinces',
+                colorAxis: {
+                    colors: ['white', 'blue', '#00853f', 'black', 'yellow', '#e31b23']
+                },
+                backgroundColor: '#81d4fa',
+                datalessRegionColor: '#f8bbd0',
+                defaultColor: '#f5f5f5'
+            };
+
+            var graph_ruby = new google.visualization.GeoChart(document.getElementById('drawChartRuby'));
+            graph_ruby.draw(data_ruby, option);
+
+            var graph_php = new google.visualization.GeoChart(document.getElementById('drawChartPHP'));
+            graph_php.draw(data_php, option);
+        }
+    </script>
+</body>
+
+</html>
