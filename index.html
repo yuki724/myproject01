@@ -21,7 +21,8 @@
     <h2>スターバックスコーヒー</h2>
     <div id="drawChartPHP" style="width: 1200px; padding: 0; margin: 0; border: 0;"></div>
          
-    <div id="drawChartRuby2" style="width: 1200px; padding: 0; margin: 0; border: 0;"></div>
+  <h2>ドトール</h2>
+    <div id="drawChartPHP2" style="width: 1200px; padding: 0; margin: 0; border: 0;"></div>
     
     <script src="https://www.google.com/jsapi"></script>
     <script>
@@ -142,7 +143,58 @@
 ['沖縄', 15]
 ]
             );
-
+            var data_php2 = google.visualization.arrayToDataTable(
+[
+['都道府県', 'PHP求人情報数'],
+['北海道', 23],
+['青森', 3],
+['岩手', 2],
+['宮城', 8],
+['秋田', 2],
+['山形', 1],
+['福島', 4],
+['茨城', 10],
+['栃木', 9],
+['群馬', 14],
+['埼玉', 92],
+['千葉', 103],
+['東京', 832],
+['神奈川', 205],
+['新潟', 2],
+['富山', 2],
+['石川', 8],
+['福井', 3],
+['山梨', 2],
+['長野', 5],
+['岐阜', 6],
+['静岡', 7],
+['愛知', 31],
+['三重', 4],
+['滋賀', 6],
+['京都', 41],
+['大阪', 222],
+['兵庫', 39],
+['奈良', 7],
+['和歌山', 6],
+['鳥取', 2],
+['島根', 9],
+['岡山', 4],
+['広島', 7],
+['山口', 5],
+['徳島', 2],
+['香川', 3],
+['愛媛', 2],
+['高知', 2],
+['福岡', 79],
+['佐賀', 2],
+['長崎', 3],
+['熊本', 6],
+['大分', 3],
+['宮崎', 4],
+['鹿児島', 2],
+['沖縄', 15]
+]
+            );
             var option = {
                 region: 'JP',
                 resolution: 'provinces',
@@ -159,6 +211,9 @@
 
             var graph_php = new google.visualization.GeoChart(document.getElementById('drawChartPHP'));
             graph_php.draw(data_php, option);
+            
+             var graph_php2 = new google.visualization.GeoChart(document.getElementById('drawChartPHP2'));
+            graph_php2.draw(data_php2, option);
             
         }
     </script>
